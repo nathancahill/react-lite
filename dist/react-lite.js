@@ -1754,7 +1754,16 @@
   	return Klass;
   };
 
+  var $exports = {
+      extend: extend,
+      batchedUpdates: function batchedUpdates(callback) {
+          updateQueue.batchUpdate();
+          callback();
+      }
+  };
+
   var React = extend({
+      $exports: $exports,
       version: '0.14.7',
       cloneElement: cloneElement,
       isValidElement: isValidElement,
